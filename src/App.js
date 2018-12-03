@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {count : 0}
+
+  addCount = () => {
+    let newCount = this.state.count + 1;
+    this.setState({count : newCount});
+  }
+
+  minusCount = () => {
+    let newCount = this.state.count - 1;
+    this.setState({count : newCount});
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <button onClick={this.addCount}>+</button>
+        <span>{this.state.count}</span>
+        <button onClick={this.minusCount}>-</button>
       </div>
     );
   }
