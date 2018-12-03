@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CounterGroup from './Components/CounterGroup';
 
 class App extends Component {
   state = {count : 0}
@@ -17,9 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.addCount}>+</button>
+        {/* <button onClick={this.addCount}>+</button>
         <span>{this.state.count}</span>
-        <button onClick={this.minusCount}>-</button>
+        <button onClick={this.minusCount}>-</button> */}
+        <CounterGroup total={3} />
       </div>
     );
   }
