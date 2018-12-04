@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CounterGroup total={1} />
+        <CounterGroup total={2} />
       </div>
     );
   }
