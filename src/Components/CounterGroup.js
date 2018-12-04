@@ -34,6 +34,11 @@ class CounterGroup extends Component {
         }
       })
     })
+    this.props.dispatch({
+      type: "SUM",
+      payload: -this.props.sum
+    })
+    
   }
 
   counterAdd = (id) => {
