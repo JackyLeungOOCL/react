@@ -7,7 +7,11 @@ export default class CounterGroup extends Component {
     sum : 0,
     numberArray : new Array(this.props.total).fill(0),
     input : '',
-    count : 0
+    count : 0,
+    counters : {
+      id : 0,
+      number : 0
+    }
   };
   
   updateSum = (delta) => {
@@ -22,19 +26,19 @@ export default class CounterGroup extends Component {
   }
 
   counterAdd = () => {
-    this.setState({count : this.state.count + 1});
+    this.setState({counters : {id : 0, number : this.state.counters.number + 1}});
     this.updateSum(1);
   }
 
   counterMinus = () => {
-    this.setState({count : this.state.count - 1});
+    this.setState({counters : {id : 0, number : this.state.counters.number - 1}});
     this.updateSum(-1);
   }
 
   render() {
     return (
       <div>
-        <div>{this.state.numberArray.map(() => <Counter count={this.state.count} onIncreased={this.counterAdd} onDecreased={this.counterMinus}/>)}</div>
+        <div>{this.state.numberArray.map(() => <Counter count={this.state.counters.number} onIncreased={this.counterAdd} onDecreased={this.counterMinus}/>)}</div>
         <div>
           <CounterGenerator applyChange={this.setNum} />
         </div>
