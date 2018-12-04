@@ -54,6 +54,7 @@ class CounterGroup extends Component {
     })
     this.setState({counters : newCounter});
     this.updateSum(1);
+    console.log(this.state.counters)
   }
 
   counterMinus = (id) => {
