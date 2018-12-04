@@ -13,7 +13,6 @@ export default class CounterGenerator extends Component {
   }
 
   parseNum = () => {
-    console.log(this.state.input)
     this.props.applyChange(parseInt(this.state.input));
   }
 

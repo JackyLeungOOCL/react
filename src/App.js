@@ -21,7 +21,7 @@ class App extends Component {
         {/* <button onClick={this.addCount}>+</button>
         <span>{this.state.count}</span>
         <button onClick={this.minusCount}>-</button> */}
-        <CounterGroup total={3} />
+        <CounterGroup total={1} />
       </div>
     );
   }
