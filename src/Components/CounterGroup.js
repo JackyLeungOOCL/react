@@ -5,7 +5,6 @@ import CounterGenerator from './CounterGenerator'
 export default class CounterGroup extends Component {
   state = {
     sum : 0,
-    input : '',
     counters : new Array(this.props.total).fill(0).map(() => {
       return {
         id : new Date().getTime() + Math.random(),
@@ -21,7 +20,12 @@ export default class CounterGroup extends Component {
 
   setNum = (num) => {
     this.setState({
-      numberArray : new Array(num).fill(0)
+      counters : new Array(num).fill(0).map(() => {
+        return {
+          id : new Date().getTime() + Math.random(),
+          number : 0
+        }
+      })
     })
   }
 
