@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Counter from './Counter.js'
 import CounterGenerator from './CounterGenerator'
+import { connect } from "react-redux";
 
-export default class CounterGroup extends Component {
+class CounterGroup extends Component {
   state = {
-    sum : 0,
+    // sum : 0,
     counters : new Array(this.props.total).fill(0).map(() => {
       return {
         id : new Date().getTime() + Math.random(),
@@ -12,10 +13,16 @@ export default class CounterGroup extends Component {
       }
     })
   };
+
+
   
   updateSum = (delta) => {
-    let newSum = this.state.sum + delta;
-    this.setState({sum : newSum});
+    // let newSum = this.props.sum + delta;
+    // this.setState({sum : newSum});
+    this.props.dispatch({
+      type : "SUM",
+      payload : delta
+    });
   }
 
   setNum = (num) => {
@@ -66,8 +73,16 @@ export default class CounterGroup extends Component {
         <div>
           <CounterGenerator applyChange={this.setNum} />
         </div>
-        <span>Sum : {this.state.sum}</span>
+        <span>Sum : {this.props.sum}</span>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  sum : state.sum
+});
+
+connect(mapStateToProps)(CounterGroup)
+
+export default connect(mapStateToProps)(CounterGroup);
