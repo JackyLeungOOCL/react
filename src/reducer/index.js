@@ -29,7 +29,7 @@ export default (state = initialState, { type, payload }) => {
         counters : state.counters.map(counter => {
           if (counter.id === payload) {
             return {
-              id : payload,
+              ...counter,
               number : counter.number + 1
             }
           }else {

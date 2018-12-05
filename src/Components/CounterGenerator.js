@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 export default class CounterGenerator extends Component {
   parseNum = () => {
     this.props.applyChange(parseInt(this.refs.input.value));
+    this.refs.input.value = '';
   }
 
   render() {
